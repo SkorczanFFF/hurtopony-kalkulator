@@ -1,9 +1,11 @@
-import React from "react";
+import Header from "./components/Layout/Header/Header";
+import TireCalculator from "./components/TireCalculator/TireCalculator";
 
 function App() {
   return (
-    <div className="App">
-      <div className="text-[#c03434] flex justify-center">Hello world!</div>
+    <div className="flex flex-col justify-center items-center h-full">
+      <Header />
+      <TireCalculator />
     </div>
   );
 }
