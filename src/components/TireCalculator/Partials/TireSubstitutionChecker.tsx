@@ -42,7 +42,7 @@ const TireSubstitutionChecker: React.FC<TireSubstitutionCheckerProps> = ({
       });
       window.scrollTo({
         top: document.body.scrollHeight,
-        behavior: "smooth", // You can use 'auto' instead of 'smooth' for immediate scrolling
+        behavior: "smooth",
       });
     }
   }, [result, substituteResult]);
