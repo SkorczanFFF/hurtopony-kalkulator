@@ -24,7 +24,7 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
   const widthOptions: JSX.Element[] = [];
   for (let i: number = 125; i <= 355; i += 10) {
     widthOptions.push(
-      <option key={i} value={i}>
+      <option key={i} value={i} disabled={disabled}>
         {i}
       </option>
     );
@@ -55,6 +55,7 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
         <select
           value={width}
           onChange={(e) => setWidth(Number(e.target.value))}
+          disabled={disabled}
         >
           {widthOptions}
         </select>
@@ -64,22 +65,25 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
         <select
           value={profile}
           onChange={(e) => setProfile(Number(e.target.value))}
+          disabled={disabled}
         >
           {profileOptions}
         </select>
       </label>
+
       <label className="flex flex-col">
-        Średnica (inches):
+        Średnica (cale):
         <select
           value={diameter}
           onChange={(e) => setDiameter(Number(e.target.value))}
+          disabled={disabled}
         >
           {diameterOptions}
         </select>
       </label>
       <h3 className="text-center">
         Średnica: <br />
-        {result}mm
+        {Math.round(result)}mm
       </h3>
     </div>
   );

@@ -9,9 +9,14 @@ const TireSubstitutionChecker: React.FC<TireSubstitutionCheckerProps> = ({
   result,
   substituteResult,
 }) => {
-  const calculateSubstituteResult = (): string => {
-    const resultPercentage: number = (1 - substituteResult / result) * -100;
-    return resultPercentage.toFixed(2) + "%";
+  const calculateSubstituteResult = (
+    substituteResult: number,
+    result: number
+  ): string => {
+    //prettier-ignore
+    const resultPercentage: number = (1 - (substituteResult / result)) * -100;
+    const formattedResult: string = resultPercentage.toFixed(2) + "%";
+    return formattedResult;
   };
 
   const calculateSubstituteValidity = (): string => {
@@ -29,8 +34,10 @@ const TireSubstitutionChecker: React.FC<TireSubstitutionCheckerProps> = ({
     <div className="flex flex-col text-center">
       {result > 0 && substituteResult > 0 && (
         <>
-          <p>{calculateSubstituteValidity()}</p>
-          <p>{calculateSubstituteResult()}</p>
+          <p className="text-[#ce3333] text-[20px]">
+            {calculateSubstituteValidity()}
+          </p>
+          <p>{calculateSubstituteResult(substituteResult, result)}</p>
         </>
       )}
     </div>
