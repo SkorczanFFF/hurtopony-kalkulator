@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import TireInputSection from "./Partials/TireInputSection";
 import Button from "./Partials/Button";
 import TireSubstitutionChecker from "./Partials/TireSubstitutionChecker";
+import DiameterInfo from "./Partials/DiameterInfo";
 
 const TireCalculator: React.FC = () => {
   const [width, setWidth] = useState<number>(195);
@@ -32,18 +33,17 @@ const TireCalculator: React.FC = () => {
   }, [result]);
 
   return (
-    <div className="flex flex-col w-full p-10 items-center">
-      <h2 className="text-center text-2xl italic font-[600] tracking-wide mb-5">
+    <div className="flex flex-col w-full pt-10 items-center min-h-[100vh] h-[100%]">
+      <h1 className="text-center text-[26px] md:text-[32px] italic font-[600] tracking-wide mb-8 mx-2">
         KOMPATYBILNOŚĆ ZAMIENNIKA
-      </h2>
-      <div className="flex flex-col gap-5">
-        <div className="flex flex-col justify-center bg-slate-300 max-w-[600px] p-5">
-          <h2>AKTUALNY ROZMIAR</h2>
+      </h1>
+      <div className="flex flex-col lg:flex-row gap-5 p-5 bg-white border-[#e4e4e4] border-[1px] max-sm:w-full sm:w-[411px] md:w-auto overflow-hidden">
+        <div className="flex flex-col justify-center bg-[#eceeef] p-5 rounded-sm pb-3">
+          <h2 className="text-[20px] mb-2">AKTUALNY ROZMIAR</h2>
           <TireInputSection
             width={width}
             profile={profile}
             diameter={diameter}
-            result={result}
             setWidth={setWidth}
             setProfile={setProfile}
             setDiameter={setDiameter}
@@ -58,18 +58,18 @@ const TireCalculator: React.FC = () => {
             label="PRZELICZ"
             disabled={false}
           />
+          <DiameterInfo result={result} />
         </div>
         <div
-          className={`flex flex-col justify-center bg-slate-300 max-w-[600px] p-5 ${
-            disabled && "opacity-70"
+          className={`flex flex-col justify-center bg-[#eceeef] p-5 rounded-sm pb-3 ${
+            disabled && "opacity-50"
           }`}
         >
-          <h2>ROZMIAR ZAMIENNIKA</h2>
+          <h2 className="text-[20px] mb-2">ROZMIAR ZAMIENNIKA</h2>
           <TireInputSection
             width={substituteWidth}
             profile={substituteProfile}
             diameter={substituteDiameter}
-            result={substituteResult}
             setWidth={setSubstituteWidth}
             setProfile={setSubstituteProfile}
             setDiameter={setSubstituteDiameter}
@@ -84,12 +84,13 @@ const TireCalculator: React.FC = () => {
             label="SPRAWDŹ"
             disabled={disabled}
           />
+          <DiameterInfo result={substituteResult} />
         </div>
-        <TireSubstitutionChecker
-          result={result}
-          substituteResult={substituteResult}
-        />
       </div>
+      <TireSubstitutionChecker
+        result={result}
+        substituteResult={substituteResult}
+      />
     </div>
   );
 };
