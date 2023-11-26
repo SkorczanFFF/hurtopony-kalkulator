@@ -40,18 +40,22 @@ const TireSubstitutionChecker: React.FC<TireSubstitutionCheckerProps> = ({
         formattedPercentage,
         compatibility,
       });
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth", // You can use 'auto' instead of 'smooth' for immediate scrolling
+      });
     }
   }, [result, substituteResult]);
 
   return (
     <div
-      className={`text-center mt-4 lg:mt-2 max-w-[410px] lg:max-w-auto max-sm:m-2 max-sm:pb-10 ${
+      className={`text-center mt-4 lg:mt-2 max-w-[410px] lg:max-w-auto max-sm:m-5 max-sm:pb-10 ${
         result > 0 && substituteResult > 0
           ? "flex flex-col items-center"
           : "hidden"
       }`}
     >
-      <h3 className="pb-2 font-[600] uppercase my-4">
+      <h3 className="pb-2 font-[600] uppercase my-4 mx-2">
         Możliwość zastosowania zamiennika?
       </h3>
       <div
