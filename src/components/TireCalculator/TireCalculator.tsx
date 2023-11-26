@@ -33,7 +33,7 @@ const TireCalculator: React.FC = () => {
   }, [result]);
 
   return (
-    <div className="flex flex-col w-full pt-10 items-center min-h-[100vh] h-[100%]">
+    <div className="flex flex-col w-full pt-10 items-center min-h-[100vh -50px] h-[100%]">
       <h1 className="text-center text-[26px] md:text-[32px] italic font-[600] tracking-wide mb-8 mx-2">
         KOMPATYBILNOŚĆ ZAMIENNIKA
       </h1>
