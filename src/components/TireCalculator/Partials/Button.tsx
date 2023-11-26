@@ -26,7 +26,7 @@ const CalculateButton: React.FC<CalculateButtonProps> = ({
 }) => {
   return (
     <button
-      className={`bg-[#920000] mt-4 text-white hover:cursor-pointer hover:brightness-125 duration-150 font-[500] p-1 ${
+      className={`bg-[#ff0000] mt-4 text-white hover:cursor-pointer hover:brightness-125 duration-150 font-[500] p-1 text-xl rounded-sm ${
         disabled && "disabled:cursor-not-allowed disabled:hover:brightness-100"
       }`}
       onClick={() => handleClick(width, profile, diameter, setResultCallback)}

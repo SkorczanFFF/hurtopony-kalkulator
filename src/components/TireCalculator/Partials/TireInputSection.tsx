@@ -4,7 +4,6 @@ interface TireInputSectionProps {
   width: number;
   profile: number;
   diameter: number;
-  result: number;
   setWidth: React.Dispatch<React.SetStateAction<number>>;
   setProfile: React.Dispatch<React.SetStateAction<number>>;
   setDiameter: React.Dispatch<React.SetStateAction<number>>;
@@ -15,7 +14,6 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
   width,
   profile,
   diameter,
-  result,
   setWidth,
   setProfile,
   setDiameter,
@@ -49,13 +47,14 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
   }
 
   return (
-    <div className="flex gap-5 justify-center">
+    <div className="flex max-sm:gap-3 gap-5 justify-center max-sm:flex-col">
       <label className="flex flex-col">
         Szerokość (mm):
         <select
           value={width}
           onChange={(e) => setWidth(Number(e.target.value))}
           disabled={disabled}
+          className="bg-white p-1 mt-2 rounded-sm pl-2"
         >
           {widthOptions}
         </select>
@@ -66,6 +65,7 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
           value={profile}
           onChange={(e) => setProfile(Number(e.target.value))}
           disabled={disabled}
+          className="bg-white p-1 mt-2 rounded-sm pl-2"
         >
           {profileOptions}
         </select>
@@ -77,14 +77,11 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
           value={diameter}
           onChange={(e) => setDiameter(Number(e.target.value))}
           disabled={disabled}
+          className="bg-white p-1 mt-2 rounded-sm pl-2"
         >
           {diameterOptions}
         </select>
       </label>
-      <h3 className="text-center">
-        Średnica: <br />
-        {Math.round(result)}mm
-      </h3>
     </div>
   );
 };
