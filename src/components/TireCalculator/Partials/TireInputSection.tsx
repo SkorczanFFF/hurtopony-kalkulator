@@ -54,7 +54,7 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
           value={width}
           onChange={(e) => setWidth(Number(e.target.value))}
           disabled={disabled}
-          className="bg-white p-1 mt-2 rounded-sm pl-2"
+          className="bg-white p-1 mt-2 rounded-sm pl-2 max-sm:mt-1"
         >
           {widthOptions}
         </select>
@@ -65,7 +65,7 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
           value={profile}
           onChange={(e) => setProfile(Number(e.target.value))}
           disabled={disabled}
-          className="bg-white p-1 mt-2 rounded-sm pl-2"
+          className="bg-white p-1 mt-2 rounded-sm pl-2 max-sm:mt-1"
         >
           {profileOptions}
         </select>
@@ -77,7 +77,7 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
           value={diameter}
           onChange={(e) => setDiameter(Number(e.target.value))}
           disabled={disabled}
-          className="bg-white p-1 mt-2 rounded-sm pl-2"
+          className="bg-white p-1 mt-2 rounded-sm pl-2 max-sm:mt-1"
         >
           {diameterOptions}
         </select>
