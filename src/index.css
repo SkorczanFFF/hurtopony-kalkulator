@@ -4,4 +4,17 @@
 
 body {
   background-color: #f7f7f7;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d93731;
+}
+
+*::-moz-scrollbar-thumb {
+  background-color: #d93731;
 }

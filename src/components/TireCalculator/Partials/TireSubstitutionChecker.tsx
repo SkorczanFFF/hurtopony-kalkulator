@@ -7,7 +7,7 @@ interface TireSubstitutionCheckerProps {
 
 interface SubstitutionInfoProps {
   formattedPercentage: string;
-  compatibility: string;
+  compatibility: boolean;
 }
 
 const TireSubstitutionChecker: React.FC<TireSubstitutionCheckerProps> = ({
@@ -17,7 +17,7 @@ const TireSubstitutionChecker: React.FC<TireSubstitutionCheckerProps> = ({
   const [substitutionInfo, setSubstitutionInfo] =
     useState<SubstitutionInfoProps>({
       formattedPercentage: "",
-      compatibility: "",
+      compatibility: false,
     });
 
   const calculateSubstituteResult = (): number => {
@@ -34,7 +34,7 @@ const TireSubstitutionChecker: React.FC<TireSubstitutionCheckerProps> = ({
       const isValidSubstitute = checkSubstituteValidity(calculatedPercentage);
 
       const formattedPercentage = `${calculatedPercentage.toFixed(2)}%`;
-      const compatibility = isValidSubstitute ? "TAK" : "NIE";
+      const compatibility = isValidSubstitute ? true : false;
 
       setSubstitutionInfo({
         formattedPercentage,
@@ -49,32 +49,32 @@ const TireSubstitutionChecker: React.FC<TireSubstitutionCheckerProps> = ({
 
   return (
     <div
-      className={`text-center mt-4 lg:mt-2 max-w-[410px] lg:max-w-auto max-sm:m-5 max-sm:pb-10 ${
+      className={`text-center max-w-[360px] lg:max-w-[410px] m-5 mt-0 ${
         result > 0 && substituteResult > 0
           ? "flex flex-col items-center"
           : "hidden"
       }`}
     >
-      <h3 className="pb-2 font-[600] uppercase my-4 mx-2">
+      <h3 className="font-[600] uppercase mx-2 my-6">
         Możliwość zastosowania zamiennika?
       </h3>
       <div
-        className={`max-w-[450px] rounded-sm border-2 py-2 px-4 pb-3 text-white ${
-          substitutionInfo.compatibility === "TAK"
-            ? "bg-[#018524] border-[#006e1d]"
-            : "bg-[#9e2727] border-[#832121]"
+        className={`max-w-[450px] border-2 py-2 px-4 pb-3 text-white ${
+          substitutionInfo.compatibility
+            ? "bg-tropical-forest border-overgrown-temple"
+            : "bg-red border-redbox"
         } `}
       >
         <p className={`text-[28px] font-bold tracking-wider`}>
-          {substitutionInfo.compatibility}
+          {substitutionInfo.compatibility ? "TAK" : "NIE"}
         </p>
         <p className="text-center">
-          Różnica między zewnętrznymi średnicami{" "}
+          Różnica między zewnętrznymi średnicami opon{" "}
           <span className="font-bold underline">
             ({substitutionInfo.formattedPercentage})
           </span>{" "}
-          opon {substitutionInfo.compatibility === "NIE" && "nie"} mieści się w
-          zakresie +1,5% do -2%
+          {!substitutionInfo.compatibility && "nie"} mieści się w zakresie +1,5%
+          do -2%
         </p>
       </div>
     </div>
