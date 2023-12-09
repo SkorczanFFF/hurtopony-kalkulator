@@ -40,44 +40,49 @@ const TireInputSection: React.FC<TireInputSectionProps> = ({
   const diameterOptions: JSX.Element[] = [];
   for (let i: number = 13; i <= 22; i += 1) {
     diameterOptions.push(
-      <option key={i} value={i} disabled={disabled}>
+      <option
+        key={i}
+        value={i}
+        disabled={disabled}
+        className="hover:bg-strong-grey"
+      >
         {i}
       </option>
     );
   }
 
   return (
-    <div className="flex max-sm:gap-3 gap-5 justify-center max-sm:flex-col">
-      <label className="flex flex-col">
-        Szerokość (mm):
+    <div className="flex gap-3 justify-center xs:flex-col">
+      <label className="flex flex-col w-full">
+        Szerokość
         <select
           value={width}
           onChange={(e) => setWidth(Number(e.target.value))}
           disabled={disabled}
-          className="bg-white p-1 mt-2 rounded-sm pl-2 max-sm:mt-1"
+          className="bg-white py-2 mt-1 px-2 cursor-pointer border-grey border-[1px] rounded-[3px] shadow-[inset_0_4px_3px_rgba(226,226,226,1)]"
         >
           {widthOptions}
         </select>
       </label>
-      <label className="flex flex-col">
-        Profil (%):
+      <label className="flex flex-col w-full">
+        Profil
         <select
           value={profile}
           onChange={(e) => setProfile(Number(e.target.value))}
           disabled={disabled}
-          className="bg-white p-1 mt-2 rounded-sm pl-2 max-sm:mt-1"
+          className="bg-white py-2 mt-1 px-2 cursor-pointer border-grey border-[1px] rounded-[3px] shadow-[inset_0_4px_3px_rgba(226,226,226,1)]"
         >
           {profileOptions}
         </select>
       </label>
 
-      <label className="flex flex-col">
-        Średnica (cale):
+      <label className="flex flex-col w-full">
+        Średnica
         <select
           value={diameter}
           onChange={(e) => setDiameter(Number(e.target.value))}
           disabled={disabled}
-          className="bg-white p-1 mt-2 rounded-sm pl-2 max-sm:mt-1"
+          className="bg-white py-2 mt-1 px-2 cursor-pointer border-grey border-[1px] rounded-[3px] shadow-[inset_0_4px_3px_rgba(226,226,226,1)]"
         >
           {diameterOptions}
         </select>

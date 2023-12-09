@@ -1,6 +1,6 @@
 import React from "react";
 
-interface CalculateButtonProps {
+interface ButtonProps {
   width: number;
   profile: number;
   diameter: number;
@@ -15,7 +15,7 @@ interface CalculateButtonProps {
   disabled: boolean;
 }
 
-const CalculateButton: React.FC<CalculateButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   width,
   profile,
   diameter,
@@ -26,8 +26,10 @@ const CalculateButton: React.FC<CalculateButtonProps> = ({
 }) => {
   return (
     <button
-      className={`bg-[#ff0000] mt-4 text-white hover:cursor-pointer hover:brightness-125 duration-150 font-[500] p-1 text-xl rounded-sm pb-[6px] ${
-        disabled && "disabled:cursor-not-allowed disabled:hover:brightness-100"
+      className={`bg-blood-moon mt-2 xs:mt-3 text-white cursor-pointer hover:bg-redbox duration-150 text-[20px] tracking-[1px] h-[40px] border-[1px] border-blood-moon ${
+        disabled
+          ? "disabled:cursor-not-allowed disabled:hover:bg-blood-moon"
+          : ""
       }`}
       onClick={() => handleClick(width, profile, diameter, setResultCallback)}
       disabled={disabled}
@@ -37,4 +39,4 @@ const CalculateButton: React.FC<CalculateButtonProps> = ({
   );
 };
 
-export default CalculateButton;
+export default Button;

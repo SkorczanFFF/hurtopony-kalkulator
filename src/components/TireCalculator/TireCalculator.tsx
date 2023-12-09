@@ -33,13 +33,13 @@ const TireCalculator: React.FC = () => {
   }, [result]);
 
   return (
-    <div className="flex flex-col w-full pt-10 items-center min-h-[100vh -50px] h-[100%]">
-      <h1 className="text-center text-[26px] md:text-[32px] italic font-[600] tracking-wide mb-8 mx-2">
+    <div className="flex flex-col w-full items-center min-h-[100vh -50px]">
+      <h1 className="text-center text-[26px] sm:text-[32px] font-[600] tracking-wider my-8 mx-2">
         KOMPATYBILNOŚĆ ZAMIENNIKA
       </h1>
-      <div className="flex flex-col lg:flex-row gap-5 p-5 bg-white border-[#e4e4e4] border-[1px] max-sm:w-full sm:w-[411px] md:w-auto overflow-hidden">
-        <div className="flex flex-col justify-center bg-[#eceeef] p-5 rounded-sm pb-3">
-          <h2 className="text-[20px] mb-2">AKTUALNY ROZMIAR</h2>
+      <div className="flex flex-col lg:flex-row gap-5 p-5 bg-white w-full overflow-hidden justify-center items-center">
+        <div className="flex flex-col justify-center bg-jupiter p-4 xs:w-full w-[360px]">
+          <h2 className="text-[22px] mb-3">AKTUALNY ROZMIAR</h2>
           <TireInputSection
             width={width}
             profile={profile}
@@ -55,17 +55,17 @@ const TireCalculator: React.FC = () => {
             diameter={diameter}
             setResultCallback={setResult}
             handleClick={calculateTireDiameter}
-            label="PRZELICZ"
+            label="Przelicz"
             disabled={false}
           />
           <DiameterInfo result={result} />
         </div>
         <div
-          className={`flex flex-col justify-center bg-[#eceeef] p-5 rounded-sm pb-3 ${
+          className={`flex flex-col justify-center bg-jupiter p-4 xs:w-full w-[360px] ${
             disabled && "opacity-50"
           }`}
         >
-          <h2 className="text-[20px] mb-2">ROZMIAR ZAMIENNIKA</h2>
+          <h2 className="text-[22px] mb-3">ROZMIAR ZAMIENNIKA</h2>
           <TireInputSection
             width={substituteWidth}
             profile={substituteProfile}
@@ -81,7 +81,7 @@ const TireCalculator: React.FC = () => {
             diameter={substituteDiameter}
             setResultCallback={setSubstituteResult}
             handleClick={calculateTireDiameter}
-            label="SPRAWDŹ"
+            label="Sprawdź"
             disabled={disabled}
           />
           <DiameterInfo result={substituteResult} />
